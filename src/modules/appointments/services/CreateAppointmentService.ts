@@ -18,6 +18,7 @@ class CreateAppointmentService {
   constructor(
     @inject('AppointmentsRepository')
     private appointmentsRepository: IAppointmentsRepostory,
+
     @inject('NotificationsRepository')
     private notificationsRepository: INotificationsRepository,
   ) {}

@@ -1,4 +1,4 @@
-import { sign } from 'jsonwebtoken';
+import { Secret, sign } from 'jsonwebtoken';
 import User from '@modules/users/infra/typeorm/entities/User';
 import authConfig from '@config/auth';
 import AppError from '@shared/errors/AppError';
@@ -41,7 +41,7 @@ class AuthenticateUserService {
 
     const { secret, expiresIn } = authConfig.jwt;
 
-    const token = sign({}, secret, {
+    const token = sign({}, secret as Secret, {
       subject: user.id,
       expiresIn,
     });
